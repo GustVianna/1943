@@ -42,8 +42,6 @@ namespace Gustavo.GameMechanics
             if (collision.gameObject.CompareTag("Player"))
             {
                 StartCoroutine(DestroyPowerUp());
-                //_energyScript = collision.gameObject.GetComponent<Energy>();
-                //_shootScript = collision.gameObject.GetComponent<Shoot>();
                 
                 //some, da o power up
             }
@@ -57,6 +55,7 @@ namespace Gustavo.GameMechanics
                     transform.position = pos;
 
                     _shotCount--; // Quando toma tiro perde a contagem até o upgrade melhorar
+
                     if (_shotCount <= 0)
                     {
                         UpgradePower();
@@ -97,12 +96,10 @@ namespace Gustavo.GameMechanics
 
                 case "Powerup1":
                     _shootScript.powerupType = 2;
-                    StartCoroutine(AmmoClock());
                     break;
 
                 case "Powerup2":
                     _shootScript.powerupType = 3;
-                    StartCoroutine(AmmoClock());
                     break;
             }
         }
@@ -126,12 +123,6 @@ namespace Gustavo.GameMechanics
                     _canUpgrade = false;
                     break;
             }
-        }
-
-        IEnumerator AmmoClock() //A munição é feita por tempo e n por tiros
-        {
-            yield return new WaitForSeconds(5);
-            _shootScript.powerupType = 1;
         }
     }
 }

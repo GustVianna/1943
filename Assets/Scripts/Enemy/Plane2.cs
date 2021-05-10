@@ -6,23 +6,12 @@ namespace Gustavo.CharactersOptions
 {
     public class Plane2 : MonoBehaviour
     {
-        private Vector3 desiredPos;
+        public float speed;
 
-        [SerializeField]
-        private int _distance;
-
-        private Vector3 center, direction;
-
-        void Start()
+        private void Update()
         {
-            Vector3 originalPos = transform.position;
-            center = originalPos + ((desiredPos - originalPos) / 2f);
-            direction = Vector3.up * _distance;
+            transform.Translate(new Vector3 (speed,0));
         }
 
-        void Update()
-        {
-            transform.position = center + Mathf.Sin(Time.time) * direction;
-        }
     }
 }

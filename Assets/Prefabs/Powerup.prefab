@@ -227,8 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ced6bdbb7637f547b92ee6e4ec0d147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parallaxDown: 1
-  parallaxSpeed: 0.01
+  parallaxSpeed: -0.01
   _isPlaying: 1
   _stopsWhenInView: 0
   _isInfinite: 0

@@ -6,8 +6,6 @@ namespace Gustavo.GameMechanics
 {
     public class Parallax : MonoBehaviour
     {
-        [SerializeField]
-        private bool _parallaxDown;
 
         [SerializeField]
         private float parallaxSpeed = 0.01f;
@@ -29,27 +27,27 @@ namespace Gustavo.GameMechanics
         {
             if (_isPlaying)
             {
-                if (_parallaxDown)
-                    ParallaxDown();
+                ParallaxStart();
+            }
 
-                else
-                    ParallaxUp();
+            else if (_isInfinite)
+            {
+                for (int i = 0; i < movableObjects.Length; i++)
+                {
+                    movableObjects[i].Translate(new Vector2(0, parallaxSpeed) * Time.deltaTime);
+
+
+                    if (movableObjects[i].position.y <= height * -2)
+                    {
+                        movableObjects[i].Translate(new Vector2(0, height * 4));
+                    }
+                }
             }
 
             else
                 return;
 
-            if (_isInfinite)
-            {
-                for (int i = 0; i < movableObjects.Length; i++)
-                {
-
-                    if (movableObjects[i].position.y <= height * -2)
-                    {
-                        movableObjects[i].Translate(new Vector2(0, height*2));
-                    }
-                }
-            }
+            
         }
 
         private void OnBecameVisible() //Quando aparece na view
@@ -63,12 +61,7 @@ namespace Gustavo.GameMechanics
             _isPlaying = false;
         }
 
-        void ParallaxDown()
-        {
-            gameObject.transform.Translate(0, -parallaxSpeed, 0);
-        }
-
-        void ParallaxUp()
+        void ParallaxStart()
         {
             gameObject.transform.Translate(0, +parallaxSpeed, 0);
         }

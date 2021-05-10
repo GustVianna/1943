@@ -14,8 +14,6 @@ namespace Gustavo.ShootOptions
         private float _chargeCurrent = 0; //Quanto tempo já está segurando
         private bool _chargeOK = false; //Quantidade de charge suficiente ou não
 
-        public float ammoCount = 40; //A munição funciona por tempo da mesma maneira que a energia do player
-
         public AudioSource source;
         public AudioClip powerup;
 
@@ -74,18 +72,6 @@ namespace Gustavo.ShootOptions
                     Debug.Log("Not enough charge");
 
             }
-
-            //if (powerupType != 1)
-            //{
-                //Munição decai com o tempo, e não com o numero de usos
-             //   ammoCount -= Time.deltaTime;
-
-            //    if (ammoCount <= 0)
-            //    {
-            //        ammoCount = 0;
-            //        powerupType = 1; //Quando acaba volta pro tiro normal
-            //    }
-            //}
         }
 
         

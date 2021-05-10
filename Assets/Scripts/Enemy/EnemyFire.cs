@@ -13,7 +13,7 @@ namespace Gustavo.CharactersOptions
 
         public AudioSource source;
 
-        private void OnEnable()
+        private void OnBecameVisible()
         {
             player = GameObject.Find("Player");//Ver onde o player está
             StartCoroutine(SlowUpdate());
