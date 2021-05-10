@@ -10,6 +10,8 @@ namespace Gustavo.ShootOptions
         public string bulletType; 
 
         private Rigidbody2D _mRb;
+
+        public AudioSource source;
         
 
         private void Awake()
@@ -19,8 +21,13 @@ namespace Gustavo.ShootOptions
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("PowerUp"))
+            source.Play();
+
+            if (collision.gameObject.CompareTag("Enemy") && !gameObject.CompareTag("BigBullet") || collision.gameObject.CompareTag("PowerUp") && !gameObject.CompareTag("BigBullet") || 
+                collision.gameObject.CompareTag("Turret") && !gameObject.CompareTag("BigBullet")) //Isso é pq o tiro grande atravessa inimigos
             {
+                
+
                 gameObject.SetActive(false);
             }
         }

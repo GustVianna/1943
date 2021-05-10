@@ -18,6 +18,9 @@ namespace Gustavo.CharactersOptions
         [SerializeField]
         private float moveSpeed;
 
+        [SerializeField]
+        private GameObject[] _turrets;
+
         // Start is called before the first frame update
         void Start()
         {

@@ -18,6 +18,12 @@ namespace Gustavo.GameMechanics
         [SerializeField]
         private bool _stopsWhenInView = false;
 
+        [SerializeField]
+        private bool _isInfinite;
+
+
+        public Transform[] movableObjects;
+        public float height = 16; //Para parallax infinito
         // Update is called once per frame
         void Update()
         {
@@ -32,6 +38,18 @@ namespace Gustavo.GameMechanics
 
             else
                 return;
+
+            if (_isInfinite)
+            {
+                for (int i = 0; i < movableObjects.Length; i++)
+                {
+
+                    if (movableObjects[i].position.y <= height * -2)
+                    {
+                        movableObjects[i].Translate(new Vector2(0, height*2));
+                    }
+                }
+            }
         }
 
         private void OnBecameVisible() //Quando aparece na view

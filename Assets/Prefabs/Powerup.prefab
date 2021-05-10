@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7983761324236760578}
   - component: {fileID: 3741527152746083627}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Powerup1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 309105957520019446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7895004896504624982}
   m_RootOrder: 0
@@ -70,12 +70,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0.9644842, b: 1, a: 1}
+  m_Sprite: {fileID: -1007931243288087428, guid: 444f8c38cf5941f4e81d2a3bf9b69258,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,7 +96,8 @@ GameObject:
   - component: {fileID: 9134271208620614093}
   - component: {fileID: 8454528103963637283}
   - component: {fileID: 4663600156806317656}
-  m_Layer: 0
+  - component: {fileID: 1754383844533260378}
+  m_Layer: 12
   m_Name: Powerup
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
@@ -157,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -212,6 +214,7 @@ MonoBehaviour:
   - {fileID: 3895233615002944736}
   - {fileID: 7340189188212968941}
   _amountToGoUp: 0.5
+  source: {fileID: 1754383844533260378}
 --- !u!114 &8454528103963637283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +231,9 @@ MonoBehaviour:
   parallaxSpeed: 0.01
   _isPlaying: 1
   _stopsWhenInView: 0
+  _isInfinite: 0
+  movableObjects: []
+  height: 16
 --- !u!114 &4663600156806317656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +246,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9873313160ccad46bee016387a62e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1754383844533260378
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616381043725370703}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 618999021f5db694c8efed6a5c4eaf9e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3895233615002944736
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498084564557819302}
   - component: {fileID: 3065212759102643510}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Powerup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 3895233615002944736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7895004896504624982}
   m_RootOrder: 1
@@ -310,12 +412,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.6517962, b: 0, a: 1}
+  m_Sprite: {fileID: -2809546781358030136, guid: 444f8c38cf5941f4e81d2a3bf9b69258,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 0.625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -331,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6909400989041810992}
   - component: {fileID: 287197593265903239}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fuel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +450,7 @@ Transform:
   m_GameObject: {fileID: 7340189188212968941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7895004896504624982}
   m_RootOrder: 2
@@ -391,12 +494,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.66225624, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: -8028845843689441741, guid: 444f8c38cf5941f4e81d2a3bf9b69258,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.875, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

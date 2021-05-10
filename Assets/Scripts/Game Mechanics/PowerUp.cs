@@ -20,6 +20,17 @@ namespace Gustavo.GameMechanics
         private Energy _energyScript; //Para aumentar a energia
         private Shoot _shootScript; //Para mudar o tiro
 
+        private GameObject _player;
+        public AudioSource source;
+
+        private void Awake()
+        {
+            _player = GameObject.Find("Player");
+
+            _energyScript = _player.gameObject.GetComponent<Energy>();
+            _shootScript = _player.gameObject.GetComponent<Shoot>();
+        }
+
         private void OnEnable()
         {
             //Reseta tudo
@@ -30,14 +41,14 @@ namespace Gustavo.GameMechanics
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                _energyScript = collision.gameObject.GetComponent<Energy>();
-                _shootScript = collision.gameObject.GetComponent<Shoot>();
-                GivePowerUp();
-                gameObject.SetActive(false);
+                StartCoroutine(DestroyPowerUp());
+                //_energyScript = collision.gameObject.GetComponent<Energy>();
+                //_shootScript = collision.gameObject.GetComponent<Shoot>();
+                
                 //some, da o power up
             }
 
-            else if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("BigBullet") || collision.gameObject.CompareTag("CircularBullet"))
+            else if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("BigBullet") || collision.gameObject.CompareTag("CircularBullet") || collision.gameObject.CompareTag("SmallBullet"))
             {
                 if (_canUpgrade)
                 {
@@ -55,6 +66,14 @@ namespace Gustavo.GameMechanics
 
                 else return;
             }
+        }
+
+        IEnumerator DestroyPowerUp()
+        {
+            source.Play();
+            yield return new WaitForSeconds(0.5f);
+            GivePowerUp();
+            gameObject.SetActive(false);
         }
 
         void ResetPowerUp()
@@ -78,10 +97,12 @@ namespace Gustavo.GameMechanics
 
                 case "Powerup1":
                     _shootScript.powerupType = 2;
+                    StartCoroutine(AmmoClock());
                     break;
 
                 case "Powerup2":
                     _shootScript.powerupType = 3;
+                    StartCoroutine(AmmoClock());
                     break;
             }
         }
@@ -105,6 +126,12 @@ namespace Gustavo.GameMechanics
                     _canUpgrade = false;
                     break;
             }
+        }
+
+        IEnumerator AmmoClock() //A munição é feita por tempo e n por tiros
+        {
+            yield return new WaitForSeconds(5);
+            _shootScript.powerupType = 1;
         }
     }
 }

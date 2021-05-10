@@ -6,11 +6,20 @@ namespace Gustavo.CharactersOptions
 {
     public class Turret : MonoBehaviour
     {
+
         GameObject player;//Para atirar no player
+
+        private void Awake()
+        {
+        }
 
         private void OnEnable()
         {
             player = GameObject.Find("Player");//Ver onde o player está
+        }
+
+        private void OnBecameInvisible()
+        {
         }
 
         private void Update()

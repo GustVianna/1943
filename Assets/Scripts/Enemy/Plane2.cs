@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane2 : MonoBehaviour
+namespace Gustavo.CharactersOptions
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Plane2 : MonoBehaviour
     {
-        
-    }
+        private Vector3 desiredPos;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField]
+        private int _distance;
+
+        private Vector3 center, direction;
+
+        void Start()
+        {
+            Vector3 originalPos = transform.position;
+            center = originalPos + ((desiredPos - originalPos) / 2f);
+            direction = Vector3.up * _distance;
+        }
+
+        void Update()
+        {
+            transform.position = center + Mathf.Sin(Time.time) * direction;
+        }
     }
 }

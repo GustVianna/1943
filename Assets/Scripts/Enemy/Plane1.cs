@@ -15,8 +15,6 @@ namespace Gustavo.CharactersOptions
         [SerializeField]
         private float _magnitude = 1f;
 
-        private bool _facingRight = true;
-
         Vector3 pos;
         
 
@@ -35,8 +33,8 @@ namespace Gustavo.CharactersOptions
 
         void SinMove()
         {
-            pos += transform.right * Time.deltaTime * _moveSpeed;
-            transform.position = pos + transform.up * Mathf.Sin(Time.time * _frequency) * _magnitude;
+            pos += transform.up * Time.deltaTime * _moveSpeed;
+            transform.position = pos + transform.right * Mathf.Sin(Time.time * _frequency) * _magnitude;
         }
     }
 }

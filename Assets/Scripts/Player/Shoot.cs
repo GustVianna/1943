@@ -16,6 +16,9 @@ namespace Gustavo.ShootOptions
 
         public float ammoCount = 40; //A munição funciona por tempo da mesma maneira que a energia do player
 
+        public AudioSource source;
+        public AudioClip powerup;
+
         // Update is called once per frame
         void Update()
         {
@@ -23,6 +26,8 @@ namespace Gustavo.ShootOptions
             //Atirar
             if (Input.GetKeyDown(KeyCode.J))
             {
+                source.Play();
+
                 switch (powerupType)
                 {
                     case 1:
@@ -60,6 +65,7 @@ namespace Gustavo.ShootOptions
 
                 if (_chargeOK == true)
                 {
+                    source.Play();
                     FireBig();
                     Debug.Log("Fire!");
                 }
@@ -69,11 +75,17 @@ namespace Gustavo.ShootOptions
 
             }
 
-            //Munição decai com o tempo, e não com o numero de usos
-            //ammoCount -= Time.deltaTime;
-            //
-            //if (ammoCount < 0)
-            //    ammoCount = 0;
+            //if (powerupType != 1)
+            //{
+                //Munição decai com o tempo, e não com o numero de usos
+             //   ammoCount -= Time.deltaTime;
+
+            //    if (ammoCount <= 0)
+            //    {
+            //        ammoCount = 0;
+            //        powerupType = 1; //Quando acaba volta pro tiro normal
+            //    }
+            //}
         }
 
         

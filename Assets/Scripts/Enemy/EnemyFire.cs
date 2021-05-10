@@ -11,6 +11,8 @@ namespace Gustavo.CharactersOptions
 
         GameObject player;//Para atirar no player
 
+        public AudioSource source;
+
         private void OnEnable()
         {
             player = GameObject.Find("Player");//Ver onde o player está
@@ -26,6 +28,7 @@ namespace Gustavo.CharactersOptions
                 if (_chanceToShoot <= 40) //40%
                 {
                     EnemyShoot();
+                    source.Play();
                 }
 
                 yield return null;

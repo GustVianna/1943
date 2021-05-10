@@ -15,6 +15,10 @@ namespace Gustavo.CharactersOptions
         private Vector2 _screenLimits; //Os limites da tela para o player não sair dela
         private float _objectWidth, _objectHeight; //Para o jogador não parar no meio da sprite e sim nas bordas isso é necessário
 
+        private Animator _animator;
+
+        private Animator _secondSpriteAnimator; //Sprite danificada do aviao
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,6 +26,9 @@ namespace Gustavo.CharactersOptions
             _screenLimits = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
             _objectWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x/2;
             _objectHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y/2;
+
+            _animator = GetComponent<Animator>();
+            _secondSpriteAnimator = GameObject.Find("SubSprite").GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -33,8 +40,14 @@ namespace Gustavo.CharactersOptions
 
         private void FixedUpdate()
         {
+
             MoveOnX();
             MoveOnY();
+
+            
+            _animator.SetFloat("SpeedX", _mRb.velocity.x); //animações
+
+            _secondSpriteAnimator.SetFloat("SpeedX2", _mRb.velocity.x); //A segunda sprite é animada junta
 
             MovementLimit();
         }
