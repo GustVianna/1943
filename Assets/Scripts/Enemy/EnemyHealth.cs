@@ -95,7 +95,7 @@ namespace Gustavo.CharactersOptions
         void EnemyDeath()
         {
             _chanceToDrop = Random.Range(0, 100); //Dropa power up com 10%
-            if (_chanceToDrop <= 10) //10%
+            if (_chanceToDrop <= 20) //20%
             {
                 SpawnPowerUp(transform.position);
             }
